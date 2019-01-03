@@ -6,6 +6,8 @@ v0.1, 2019-01-03
 
 This document provides basic instructions for administrators about installing and configuring an Owncloud server and making it available to desktop and mobile clients. 
 
+toc::[]
+
 == Installing and configuring an Owncloud server
 == Enabling connections to an Owncloud server
 == Adding user accounts
