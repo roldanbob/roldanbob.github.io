@@ -2,6 +2,8 @@
 Author <bob.roldan@gmail.com>
 v0.1, 2019-01-03
 
+:toc:
+
 This document provides basic instructions for administrators about installing and configuring an Owncloud server and making it available to desktop and mobile clients. 
 
 == Installing and configuring an Owncloud server
