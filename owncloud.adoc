@@ -3,15 +3,15 @@ Author <bob.roldan@gmail.com>
 v0.1, 2019-01-03
 
 ifdef::env-github[]
-# :imagesdir: foo/
+// :imagesdir: foo/
 :toc:
 :toc-placement!:
 endif::[]
 
-This document provides basic instructions for administrators about how to install and
-configure an ownCloud server and make it available to desktop and mobile clients.
+This document provides guidance for administrators who want to install and configure
+an ownCloud server and make it available to desktop and mobile clients.
 
-Before you install ownCloud in a production environment, be sure to read the https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[ownCloud Server Administration Manual].
+For detailed instructions about deploying ownCloud, be sure to read the https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[ownCloud Server Administration Manual].
 
 toc::[]
 
