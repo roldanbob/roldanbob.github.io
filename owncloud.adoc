@@ -3,28 +3,106 @@ Author <bob.roldan@gmail.com>
 v0.1, 2019-01-03
 
 ifdef::env-github[]
-// :imagesdir: foo/
+:imagesdir: images/
 :toc:
 :toc-placement!:
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
 endif::[]
 
-This document provides guidance for administrators who want to install and configure
-an ownCloud server and make it available to desktop and mobile clients.
-
-For detailed instructions about deploying ownCloud, be sure to read the https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[ownCloud Server Administration Manual].
+This document provides guidance for administrators who want to deploy a locally hosted,
+single-machine ownCloud Community Edition server and make it available to desktop and mobile clients.
+You can use several methods to install OwnCloud. These instructions focus on using Linux package manager
+for the installation.
+For information about other methods and for detailed instructions about deploying ownCloud,
+refer to the https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[ownCloud Server Administration Manual].
 
 toc::[]
 
+== Introduction
+ownCloud is a secure, open source, private cloud file storage system that automatically synchs files across multiple
+clients.
+Users can access files stored on ownCloud from remote desktop or mobile devices.
+
 == Installing and configuring an ownCloud server
 === System requirements
-You can install the ownCloud server on a range of Linux operating systems. Be sure that computer where you install the server meets the minimum requirements. For more information, see https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[System requirements].
+You can install the ownCloud server on a range of Linux operating systems. Be sure that computer where
+you install ownCloud meets the minimum requirements. For more information about system requirements,
+see https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[System requirements].
+
+[NOTE]
+=====================================================
+
+You can install ownCloud on a Windows computer by installing Linux within a VirtualBox environment.
+
+=====================================================
+
+
+
+=== Before you begin
+Administrators who install ownCloud must have command line or `cron` access.
+
+//Install prerequisites.
+
+Be sure that you have installed a LAMP stack (Linux OS, Apache HTTP server, mySQL relational database,
+and PHP programming language).
 
 === Downloading the server ownCloud server
-== Enabling connections to an ownCloud server
-== Adding user accounts
-== Connecting clients to an ownCloud server
-Client applications are available for Microsoft Windows, Mac OS X, and Linux.
-Mobile clients are available for the Android and Apple iOS operating systems.
+. Downloads > Linux Distribution Packages > Go to packages.
+. From the *Install package owncloud-files* page, click the operating system on which
+ you want to install ownCloud.
+. From a terminal, run the commands to add a repository and install the server package for
+  the OS version that runs on your computer.
+. After the package manager finishes adding the ownCloud files to your computer, run the Installation
+Wizard to complete the installation.
 
-=== Download the desktop client
-=== Download the mobile client
+==== Post-installation steps
+
+==== Start the HTTP server and verify that it is working
+
+. From a command line, type 'ipconfig' to obtain the IP address of the computer where you installed
+ownCloud.
+
+. From a browser on a different computer, type the IP address that you obtained
+in the previous step in the address bar. The default welcome page for the HTTP server
+displays in the browser.
+
+==== Access the ownCloud server
+From a browser on a different computer, navigate to the ownCloud server:
+Type the server IP address, followed by `/owncloud/` in the location field.
+For example:
+
+----
+ http://192.168.1.123/owncloud/
+----
+
+Create an administrator account by typing a name and password in the *Create an admin account* field.
+
+Click *Finish setup*.
+
+== Enabling connections to an ownCloud server
+//Enable connections via IP address and port 8080
+//https://doc.owncloud.org/server/10.0/admin_manual/installation/changing_the_web_route.html[Changing your ownCloud URL]
+//ownCloud is served by your webserver so you need to configure the used port in the configuration of your webserver.
+//https://stackoverflow.com/questions/3940909/configure-apache-to-listen-on-port-other-than-80[Configure apache to listen on port other than 80]
+
+== Adding user accounts
+Add a local user. Sign in as an adminstrator and then  Open the *User management* page of your ownCloud Web UI.
+Optionally, you can add a user to a group.
+
+== Connecting clients to an ownCloud server
+To provide automatic synchronization of files across multiple device, you can
+install ownCloud Synchronization Clients. Desktop clients are available for Linux,
+macOS, and Microsoft Windows. Mobile clients are available for the Android and
+Apple iOS operating systems.
+
+[NOTE]
+========================================================
+Desktop devices can also access ownCloud from a browser.
+========================================================
+
+You can download desktop clients from the https://owncloud.com/download/#desktop-clients[ownCloud download page]
+Mobile clients are available on Google Play and on the Apple App Store.
