@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+= ownCloud Quickstart Guide
+Author <bob.roldan@gmail.com>
+v0.1, 2019-01-03
 
-You can use the [editor on GitHub](https://github.com/roldanbob/owncloud/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+ifdef::env-github[]
+// :imagesdir: foo/
+:toc:
+:toc-placement!:
+endif::[]
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This document provides guidance for administrators who want to install and configure
+an ownCloud server and make it available to desktop and mobile clients.
 
-### Markdown
+For detailed instructions about deploying ownCloud, be sure to read the https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[ownCloud Server Administration Manual].
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+toc::[]
 
-```markdown
-Syntax highlighted code block
+== Installing and configuring an ownCloud server
+=== System requirements
+You can install the ownCloud server on a range of Linux operating systems. Be sure that computer where you install the server meets the minimum requirements. For more information, see https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[System requirements].
 
-# Header 1
-## Header 2
-### Header 3
+=== Downloading the server ownCloud server
+== Enabling connections to an ownCloud server
+== Adding user accounts
+== Connecting clients to an ownCloud server
+Client applications are available for Microsoft Windows, Mac OS X, and Linux.
+Mobile clients are available for the Android and Apple iOS operating systems.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/roldanbob/owncloud/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+=== Download the desktop client
+=== Download the mobile client
