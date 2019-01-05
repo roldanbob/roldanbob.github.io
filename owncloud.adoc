@@ -48,7 +48,8 @@ Administrators who install ownCloud must have command line or `cron` access.
 //Install prerequisites.
 
 Be sure that you have installed a LAMP stack (Linux OS, Apache HTTP server, mySQL relational database,
-and PHP programming language).
+and PHP programming language). You can find a number of excellent video tutorials that run through the steps
+for installing prerequisite software. 
 
 === Downloading the server ownCloud server
 . Downloads > Linux Distribution Packages > Go to packages.
@@ -70,6 +71,8 @@ ownCloud.
 in the previous step in the address bar. The default welcome page for the HTTP server
 displays in the browser.
 
+=== Create the database
+
 ==== Access the ownCloud server
 From a browser on a different computer, navigate to the ownCloud server:
 Type the server IP address, followed by `/owncloud/` in the location field.
@@ -83,7 +86,7 @@ Create an administrator account by typing a name and password in the *Create an 
 
 Click *Finish setup*.
 
-== Enabling connections to an ownCloud server
+== Changing the default address of the ownCloud server
 //Enable connections via IP address and port 8080
 //https://doc.owncloud.org/server/10.0/admin_manual/installation/changing_the_web_route.html[Changing your ownCloud URL]
 //ownCloud is served by your webserver so you need to configure the used port in the configuration of your webserver.
