@@ -17,6 +17,17 @@ This document provides guidance for administrators who want to deploy a locally 
 single-machine ownCloud Community Edition server and make it available to desktop and mobile clients.
 You can use several methods to install OwnCloud. These instructions focus on using Linux package manager
 for the installation.
+
+[IMPORTANT]
+=====================================================
+
+These instructions are intended to help you to quickly
+install a test deployment of ownCloud on a local computer.
+The resulting server is not secured for use in a production
+setting.
+
+=====================================================
+
 For information about other methods and for detailed instructions about deploying ownCloud,
 refer to the https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[ownCloud Server Administration Manual].
 
@@ -27,7 +38,7 @@ ownCloud is a secure, open source, private cloud file storage system that automa
 clients.
 Users can access files stored on ownCloud from remote desktop or mobile devices.
 
-== Installing and configuring an ownCloud server
+== Installing and configuring ownCloud Community Edition
 === System requirements
 You can install the ownCloud server on a range of Linux operating systems. Be sure that computer where
 you install ownCloud meets the minimum requirements. For more information about system requirements,
@@ -45,37 +56,105 @@ You can install ownCloud on a Windows computer by installing Linux within a Virt
 === Before you begin
 Administrators who install ownCloud must have command line or `cron` access.
 
-//Install prerequisites.
+==== Installation prerequisites
 
 Be sure that you have installed a LAMP stack (Linux OS, Apache HTTP server, mySQL relational database,
-and PHP programming language). You can find a number of excellent video tutorials that run through the steps
-for installing prerequisite software. 
+and PHP programming language).
+For example, on Ubuntu, run the following commands to install the prerequisites:
+
+----
+
+sudo apt-get update
+sudo apt-get install lamp-server^
+
+----
+
+===== Create the database
+// See https://www.techrepublic.com/article/how-to-install-owncloud-on-ubuntu-18-04/
+
+
+You can find a number of excellent video tutorials that run through the steps
+for installing prerequisite software.
 
 === Downloading the server ownCloud server
+
+You can install ownCloud from the package manager of your Linux distribution, or
+install the software manually, using the command line. The following instructions
+guide you through the process for using the package manager to complete installation.
+
+. Open a browser to http://download.owncloud.org/download/repositories/10.0/owncloud/
 . Downloads > Linux Distribution Packages > Go to packages.
 . From the *Install package owncloud-files* page, click the operating system on which
  you want to install ownCloud.
+
+//Grab the release key
 . From a terminal, run the commands to add a repository and install the server package for
   the OS version that runs on your computer.
 . After the package manager finishes adding the ownCloud files to your computer, run the Installation
 Wizard to complete the installation.
 
+
+
 ==== Post-installation steps
 
-==== Start the HTTP server and verify that it is working
+Create the file `/etc/apache2/sites-available/owncloud.conf` and set the Alias
+directive for your ownCloud directory to the Web server root:
+
+----
+Alias / "/var/www/owncloud/"
+
+<Directory /var/www/owncloud/>
+  Options +FollowSymlinks
+  AllowOverride All
+
+ <IfModule mod_dav.c>
+  Dav off
+ </IfModule>
+
+ SetEnv HOME /var/www/owncloud
+ SetEnv HTTP_HOME /var/www/owncloud
+
+</Directory>
+----
+
+.Create a symbolic link to the owncloud configuration
+
+From a command shell, type the following command to create a symbolic link
+to `/etc/apache2/sites-enabled`:
+
+----
+ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabled/owncloud.conf
+----
+== Changing the default address of the ownCloud server
+//Enable connections via IP address and port 8080
+//https://doc.owncloud.org/server/10.0/admin_manual/installation/changing_the_web_route.html[Changing your ownCloud URL]
+//ownCloud is served by your webserver so you need to configure the used port in the configuration of your webserver.
+//https://stackoverflow.com/questions/3940909/configure-apache-to-listen-on-port-other-than-80[Configure apache to listen on port other than 80]
+
+
+====Restart the HTTP server and verify that it is working
+
+. Start the Apache2 server.
+//`service apache2 restart`
+//`systemctl status apache2`
 
 . From a command line, type 'ipconfig' to obtain the IP address of the computer where you installed
 ownCloud.
 
-. From a browser on a different computer, type the IP address that you obtained
-in the previous step in the address bar. The default welcome page for the HTTP server
+. From a browser, type the server IP address  in the address bar.
+ The default welcome page for the HTTP server
 displays in the browser.
 
-=== Create the database
+// === Create the database  <- This actually happens pre-install
+//But I had to re-do setting permissions for my database user before I could
+//complete the web UI step of creating my db admin
 
 ==== Access the ownCloud server
-From a browser on a different computer, navigate to the ownCloud server:
-Type the server IP address, followed by `/owncloud/` in the location field.
+
+. From a browser, open the ownCloud Web UI
+
+ type the URL for the ownCloud server: `http://<ip_address>:8080`
+
 For example:
 
 ----
@@ -86,11 +165,6 @@ Create an administrator account by typing a name and password in the *Create an 
 
 Click *Finish setup*.
 
-== Changing the default address of the ownCloud server
-//Enable connections via IP address and port 8080
-//https://doc.owncloud.org/server/10.0/admin_manual/installation/changing_the_web_route.html[Changing your ownCloud URL]
-//ownCloud is served by your webserver so you need to configure the used port in the configuration of your webserver.
-//https://stackoverflow.com/questions/3940909/configure-apache-to-listen-on-port-other-than-80[Configure apache to listen on port other than 80]
 
 == Adding user accounts
 Add a local user. Sign in as an adminstrator and then  Open the *User management* page of your ownCloud Web UI.
@@ -109,3 +183,5 @@ Desktop devices can also access ownCloud from a browser.
 
 You can download desktop clients from the https://owncloud.com/download/#desktop-clients[ownCloud download page]
 Mobile clients are available on Google Play and on the Apple App Store.
+
+//https://owncloud.org/download/#install-clients
