@@ -158,7 +158,7 @@ displays in the browser.
 For example:
 
 ----
- http://192.168.1.123/owncloud/
+ http://192.168.1.123:8080
 ----
 
 Create an administrator account by typing a name and password in the *Create an admin account* field.
@@ -184,4 +184,49 @@ Desktop devices can also access ownCloud from a browser.
 You can download desktop clients from the https://owncloud.com/download/#desktop-clients[ownCloud download page]
 Mobile clients are available on Google Play and on the Apple App Store.
 
-//https://owncloud.org/download/#install-clients
+Open the https://owncloud.org/download/#install-clients[ownCloud Client download page],
+click the operating system for which you want to install a client, and then follow
+the instructions to add the repository and complete the installation.
+
+Run the installation wizard to complete the ownCloud client setup.
+
+On Windows 10, click *Yes* to allow the program to make changes to your computer,
+Enter your administrator password if prompted.
+
+You'll need to restart your computer to enable Windows Explorer integration, but
+if you want to check out the client right away, it's ok to wait until later to
+restart. Just realize that you won't be able to use ownCloud with Explorer just now.
+If you decide not to restart now, select the checkbox on the final screen of the
+Setup wizard to open the ownCloud client now.
+
+When prompted, either click *Yes* to restart the computer now and enable Explorer
+integration, or click *No* to restart later.
+
+== Connecting the ownCloud Sychronization client to the server
+
+After the client starts, you're ready to configure a connection to the server.
+
+If you haven't started it, go ahead and start the server, , and then type the
+ address and port of the ownCloud server, using
+the format `http://xxx.xxx.xxx.xxx:<port_number>` and click *Next*. By default, the client
+automatically tries to connect using HTTPS. If you installed the server
+according to the instructions in this Quick Start guide, you did not secure the
+HTTP connection with a certificate. So, be sure to connect with plain HTTP, or
+the connection attempt fails.
+
+Type the credentials of the user that you added from the Admin UI and then click
+*Next*.
+
+Set up the local folder options to specify how you want to use synchronization,
+and then click *Connect...*.
+
+ Click *Add Folder Sync Connection* to synchronize a new folder, and then
+ specify that path to the folder and click *Next*.
+
+ Choose the folder on the ownDrive server where you want to save the synchronized
+ folder content and click *Next*.
+
+ Deselect any folders on the server that you don't want the client to synchronize,
+ and then click *Add Sync Connection*.
+
+== Mobile  
