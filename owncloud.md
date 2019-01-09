@@ -26,7 +26,7 @@ The resulting server is not secured for use in a production
 setting.
 ****
 For information about other methods and for detailed instructions about deploying ownCloud,
-refer to the https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[ownCloud Server Administration Manual].
+refer to the [ownCloud Server Administration Manual](https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html).
 
 
 ## Introduction
@@ -36,11 +36,11 @@ Users can access files stored on ownCloud from remote desktop or mobile devices.
 
 ## Installing and configuring ownCloud Community Edition
 
-
+<!-- add intro -->
 ### System requirements
 You can install the ownCloud server on a range of Linux operating systems. Be sure that computer where
 you install ownCloud meets the minimum requirements. For more information about system requirements,
-see https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html[System requirements].
+see [System requirements](https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html) in the ownCloud Server Administration Manual.
 
 ****
 **Note**
@@ -75,15 +75,12 @@ You can install ownCloud from the package manager of your Linux distribution, or
 install the software manually, using the command line. The following instructions
 guide you through the process for using the package manager to complete installation.
 
-1. Open a browser to http://download.owncloud.org/download/repositories/10.0/owncloud/
+1. Open a browser to the [ownCloud Downloads page](http://owncloud.org/download), scroll to **Linux distribution packages**, and then click **Go to packages**.
 
-1. Downloads > Linux Distribution Packages > Go to packages.
-1. From the **Install package owncloud-files** page, click the operating system on which
- you want to install ownCloud.
+1. From the **Install package owncloud-files** page, click the name of the operating system where you're installing ownCloud.
 
 <!-- Grab the release key -->
-1. From a terminal, run the commands to add a repository and install the server package for
-  the OS version that runs on your computer.
+1. From a terminal, run the commands to download the release key, add the repository, and install the ownCloud server files.
 1. After the package manager finishes adding the ownCloud files to your computer, run the Installation
 Wizard to complete the installation.
 
@@ -165,7 +162,7 @@ Apple iOS operating systems.
 **Note**
 Desktop devices can also access ownCloud from a browser.
 ****
-You can download desktop clients from the [ownCloud download page](https://owncloud.com/download/#desktop-clients). Mobile clients are available on Google Play and on the Apple App Store.
+You can download desktop clients from the [ownCloud download page](https://owncloud.com/download/#desktop-clients).
 
 1. Open the [ownCloud Client download page](https://owncloud.org/download/#install-clients),click the operating system for which you want to install a client, and then follow
 the instructions to add the repository and complete the installation.
@@ -188,18 +185,19 @@ the format `http://xxx.xxx.xxx.xxx:<port_number>`, and click **Next**. By defaul
 automatically tries to connect using HTTPS. If you installed the server according to the instructions in this Quick Start guide, you did not secure the HTTP connection with a certificate. So, be sure to connect with plain HTTP, or the connection attempt fails.
 
 1. Type the credentials of the user that you added from the Admin UI and then click
-*Next*.
+**Next**.
 
 1. Set up the local folder options to specify how you want to use synchronization,
-and then click *Connect...*.
+and then click **Connect...**.
 
-1. Click *Add Folder Sync Connection* to synchronize a new folder, and then
- specify that path to the folder and click *Next*.
+1. Click **Add Folder Sync Connection** to synchronize a new folder, and then
+ specify that path to the folder and click **Next**.
 
  1. Choose the folder on the ownDrive server where you want to save the synchronized
- folder content and click *Next*.
+ folder content and click **Next**.
 
  1. Deselect any folders on the server that you don't want the client to synchronize,
- and then click *Add Sync Connection*.
+ and then click **Add Sync Connection**.
 
 ## Mobile clients  
+Mobile clients are available for purchase on the Google Play Store and on the Apple App Store.
