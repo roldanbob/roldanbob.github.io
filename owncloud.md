@@ -1,33 +1,8 @@
-# ownCloud Quickstart Guide
-Author: <bob.roldan@gmail.com>
 
-
-<!-- ifdef::env-github[]
-:imagesdir: images/
-:toc:
-:toc-placement!:
-:tip-caption: :bulb:
-:note-caption: :information_source:
-:important-caption: :heavy_exclamation_mark:
-:caution-caption: :fire:
-:warning-caption: :warning:
-endif::[] -->
-
-This document provides guidance for administrators who want to deploy a locally hosted,
-single-machine ownCloud Community Edition server and make it available to desktop and mobile clients.
-You can use several methods to install OwnCloud. These instructions focus on using Linux package manager
-for the installation.
-
-****
-**Note**
-These instructions are intended to help you to quickly
-install a test deployment of ownCloud on a local computer.
-The resulting server is not secured for use in a production
-setting.
-****
-For information about other methods and for detailed instructions about deploying ownCloud,
-refer to the [ownCloud Server Administration Manual](https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html).
-
+---
+layout: default
+title: ownCloud Quickstart
+---
 
 ## Introduction
 ownCloud is a secure, open source, private cloud file storage system that automatically synchs files across multiple

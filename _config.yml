@@ -13,21 +13,15 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: ownCloud Quickstart Guide
+name: ownCloud Quickstart Guide
 email: bob.roldan@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Simplified instructions for doing a basic install of the ownCloud server on
-  ubuntu, creating users, and enabling connections from desktop and mobile
-  devices.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://roldanbob.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  roldanbob
-
 # Build settings
 markdown: kramdown
 theme: minima
-plugins:
-  - jekyll-feed
+#plugins:
+#  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
