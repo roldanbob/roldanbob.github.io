@@ -16,15 +16,41 @@ a {
     text-decoration: none;
     color: #999;
 }
+code{
+  font-family: monospace, monospace;
+  background-color: #f0f0f0;
+}
+pre{
+  font-family:monospace, monospace;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style:normal;
+  font-weight:normal;
+}
+
 a:hover {
     text-decoration: underline;
 }
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+h2 {
+    font-size: 1.875em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+h3 {
+    font-size: 1.76em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+h4 {
+    font-size: 1.68em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    font-size: 1.5em;
+    font-size: 0.875em;
+    font-family: sans-serif;
     line-height: 1.4em;
     color: #333;
 }
