@@ -34,7 +34,7 @@ _______
 ## Before you begin
 You should be familiar with using the Linux command-line to install software. Administrators who install ownCloud must have sudo access to the command-line.
 
-## System requirements
+### System requirements
 To verify that your computer meets the minimum system requirements for installing
 the server, see [System requirements](https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html).
 
@@ -90,7 +90,7 @@ After you confirm that the service is running use a browser to test whether you 
 
 1. Type the IP address that `ifconfig` returns in the address bar of a browser. The default welcome page for the HTTP server displays in the browser.
 
-### Create the database
+### Creating the database
 Create a database user and the database itself by using the MySQL command line interface. After you install ownCloud, the database tables are created automatically
 when you first time log in as administrator.
 
@@ -131,7 +131,7 @@ _______
 Note:
 For our purposes, we won't secure the database, but you would do that in any production environment.
 
-## installing the ownCloud server package
+## Installing the ownCloud server package
 
 You can install ownCloud from the package manager of your Linux distribution, or
 you can install the software manually, using the command line. We'll use the command line to complete the installation.
@@ -153,7 +153,7 @@ you can install the software manually, using the command line. We'll use the com
    ```
    sudo su
    ```
-   Type your root password when prompted and then type the following commands to add the ownCloud repository and install the ownCloud server files:
+   Type your root password when prompted, and then type the following commands to add the ownCloud repository and install the ownCloud server files:
 
    ```
    echo 'deb http://download.owncloud.org/download/repositories/production/Ubuntu_18.04/ /' > /etc/apt/sources.list.d/owncloud.list
@@ -213,68 +213,61 @@ Run the `a2ensite` and `a2enmod` commands to execute scripts that enable the own
    ```
   You should now be able to bring up the ownCloud sign-in page in a browser by specifying the server's IP address.
 
-  !["Sample ownCloud log-in page"](/images/oc_login_dflt_port.PNG)
+    !["Sample ownCloud log-in page"](/images/oc_login_dflt_port.PNG)
 
-## Changing the default address of the ownCloud server
+### Changing the default port for the ownCloud server
 
-Now you're ready to configure a custom port for serving up your ownCloud server. We'll set the port to 8080. After you make the change, the server accepts connections only from browsers that specify the new port in the URL.
+Now you're ready to configure a custom port for serving up your ownCloud server. We'll set the port to 8080. After you make the change, to access the server clients must specify the new port in the server URL.
 
-ownCloud is served by your web server so you need to configure the port that you want to use in the configuration of your web server.
+1. Use a text editor to open the file `/etc/apache2/ports.conf` and change the port number in the first line to 8080:
 
-See [Changing your ownCloud URL](https://doc.owncloud.org/server/10.0/admin_manual/installation/changing_the_web_route.html).
+  ```
+  Listen 8080
+  ```
+1. Now make the same change to the port nunmber in the first line of the file `/etc/apache2/sites-enabled/000-default.conf`:
 
+   ```
+   <VirtualHost *: 8080>
+   ```
+1. Restart the HTTP server:
 
+  ```
+  sudo service apache2 restart
+  ```
 
-## Configuring the HTTP server to listen on port 8080
+Apache now listen on port 8080.
 
-https://stackoverflow.com/questions/3940909/configure-apache-to-listen-on-port-other-than-80[Configure the Apache to listen on port other than 80]
+### Running the installation wizard
+The final step in setting up the ownCloud server is to run the installation wizard by connecting to the server from a browser.
 
-
-### Verify that the HTTP server runs
-
-   <!--
-1. After the package manager finishes adding the ownCloud files to your computer, run the Installation
-Wizard to complete the installation.
--->
-
-1. Type the following commands to start the Apache2 server and verify its status:
-
-  ````
-    service apache2 restart
-
-    systemctl status apache2
- ````
-1. From a command line, type `ifconfig` to obtain the IP address of the computer where you installed ownCloud. If net-tools is not installed, you're prompted to run `sudo apt install net-tools`
-
-
-1. Type the IP address in the address bar of a browser. The default welcome page for the HTTP server displays in the browser.
-
-<!-- ### Create the database  <- This actually happens pre-install
-But I had to re-do setting permissions for my database user before I could complete the web UI step of creating my db admin -->
-
-### Sign in to the ownCloud server as administrator
-1. From a browser, open the ownCloud Web UI type the URL for the ownCloud server: `http://<ip_address>:8080`
+1. From a browser, type the URL for the ownCloud server: `http://<ip_address>:8080`
 
    For example:
-
-    http://192.168.1.123:8080
-
+   ```
+  http://192.168.1.123:8080
+   ```
 2. Create an administrator account by typing a name and password in the **Create an admin account** field.
 
-3. Click *Finish setup*.
+3. Click **Finish setup**.
 
+ For more information about the installation wizard, see [The Installation Wizard](https://doc.owncloud.org/server/10.0/admin_manual/installation/installation_wizard.html) in the Administrator Manual.
+
+You're now ready to begin creating users.
 
 ## Adding user accounts
 After you log in as administrator, you can add users to the ownCloud local user registry.
 
+1. From the ownCloud Web UI, click the administrator name and then click **Users**.
+
+  ![Screenshot showing how to open the User management page from the ownCloud Web UI](/images/admin_menu.png)
+
+1. From the **User management** page of the ownCloud Web UI, type a username and email address for the user that you want to add, and click **Create**.
+2. Click the pencil next to the password field for the user that you added, and type a password. 
+
+<!--the field where you put the user name -->
+
 For more information, see [Creating a New User](https://doc.owncloud.org/server/10.0/admin_manual/configuration/user/user_configuration.html#creating-a-new-user) in the ownCloud
 Server Adminstration Manual.
-
-From the *User management* page of the ownCloud Web UI, click
-
-![Screenshot showing how to open the User management page from the ownCloud Web UI](/images/admin_menu.png)
-
-Optionally, you can add a user to a group.
 
 ## Setting up your ownCloud synchronization client
 To provide automatic synchronization of files across multiple device, you can install ownCloud Synchronization Clients. Desktop clients are available for Linux, macOS, and Microsoft Windows. Mobile clients are available for the Android and
