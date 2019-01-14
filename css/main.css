@@ -14,20 +14,26 @@ nav ul li, footer ul li {
 }
 a {
     text-decoration: none;
-    color: #999;
+    color: #007fff;
 }
 code{
   font-family: monospace, monospace;
+  color: #e03c31;
   background-color: #f0f0f0;
 }
 pre{
   font-family:monospace, monospace;
 }
 
-address, caption, cite, code, dfn, em, strong, th, var {
+address, caption, cite, code, dfn, th, var {
   font-style:normal;
   font-weight:normal;
 }
+
+ em, strong {
+   font-style: normal;
+   font-weight: bold;
+ }
 
 a:hover {
     text-decoration: underline;
@@ -48,8 +54,8 @@ h4 {
     font-size: 1.68em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
-p {
-    font-size: 0.875em;
+p, li {
+    font-size: 1em;
     font-family: sans-serif;
     line-height: 1.4em;
     color: #333;
