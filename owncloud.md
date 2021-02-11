@@ -13,7 +13,7 @@ Users can access files stored on ownCloud from remote desktop or mobile devices.
 
 <!-- add intro -->
 ### System requirements
-You can install the ownCloud server on a range of Linux operating systems. Be sure that computer where
+You can install the ownCloud server on any Linux operating systems. Be sure that computer where
 you install ownCloud meets the minimum requirements. For more information about system requirements,
 see [System requirements](https://doc.owncloud.org/server/10.0/admin_manual/installation/system_requirements.html) in the ownCloud Server Administration Manual.
 
