@@ -23,7 +23,7 @@ You can install ownCloud on a Windows computer by installing Linux within a Virt
 ***
 
 ### Before you begin
-Administrators who install ownCloud must have command line or `cron` access.
+To install ownCloud, you must ba an administrator who has command line or `cron` access.
 
 #### Installation prerequisites
 
